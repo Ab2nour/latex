@@ -21,6 +21,46 @@
 
 \begin{document}
 
+% ---------- Kruskal ---------- 
+\begin{algorithm} \caption{Kruskal}
+\begin{algorithmic}
+
+\State \textbf{Entrée :} $G = (V, E)$, un graphe orienté valué et un sommet $S$
+\State \textbf{Sortie :} $T = (V, F)$ un Arbre Couvrant de Poids Minimum de $G$
+
+\\ \State \textbf{Complexité :} $O(n\times m)$
+
+\\ \State \textit{Partie 1 : Initialisation}
+\ForEach {$v \in V(G)$}
+    \State $d[v] := +\infty$
+    \State $p[v] := \emptyset$
+\EndFor
+
+
+\\ \State \textit{Partie 2 : Calcul des plus courts chemins}
+\For {$i=1$ to $|V(G)|-1$}
+    \ForEach {arc $(u, v)$}
+        \If {$(d[v] > d[u] + w(u ,v))$}
+            \State $d[v] := d[u] + w(u, v)$
+            \State $p[v] := u$
+        \EndIf
+    \EndFor
+\EndFor
+
+
+\\ \State \textit{Partie 3 : Détection de cycle de poids négatif}
+\ForEach {arc $(u, v)$}
+    \If {$(d[u] > d[u] + w(u ,v))$}
+    \State \textbf{return} Impossible \textit{(cycle de poids négatif)}
+    \EndIf
+\EndFor
+
+\\ \State \textbf{return} $p$
+\end{algorithmic}
+\end{algorithm}
+
+
+% ---------- Bellman-Ford ---------- 
 \begin{algorithm} \caption{Bellman \textit{(Bellman-Ford)}}
 \begin{algorithmic}
 
