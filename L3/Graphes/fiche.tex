@@ -1,0 +1,33 @@
+\documentclass{article}      % Specifies the document class
+
+\usepackage{amsmath}
+\usepackage[noend]{algpseudocode}
+\usepackage{algorithm}
+
+
+\algnewcommand\algorithmicforeach{\textbf{for each}}
+\algdef{S}[FOR]{ForEach}[1]{\algorithmicforeach\ #1\ \algorithmicdo}
+
+\begin{document}
+
+\begin{algorithm} \caption{Bellman \textit{(Bellman-Ford)}}
+\begin{algorithmic}
+\Require $G = (V, E)$, un graphe orienté valué et un sommet $S$
+\Ensure $T$ une arborescence de plus court chemin ou Faux si pas possible
+
+\State \textit{Partie 1 : Initialisation}
+\ForEach {$v \in V(G)$}
+    \State $p[v] := \emptyset$
+    \State $d[v] := +\infty$
+\EndFor
+\end{algorithmic}
+\end{algorithm}
+
+\end{document}
+
+% Entrées
+    \Input{$G = (V, E)$, un graphe orienté valué et un sommet $S$}
+    \Output{}
+    \BlankLine
+    
+    \lForEach{v \in V(G)} {\;p[v] := $\emptyset$\; d[v] := +$\infty$}
