@@ -24,11 +24,21 @@
 
 \section{Arbre couvrant de poids minimum (ACPM)}
 
+\subsection{Définition du problème}
 Soit $G = (V, E, w)$ un graphe.
-$w$ \textit{(w pour weight)} est la fonction de pondération \textit{(le poids)} des arêtes.
+$w$ \textit{(pour weight)} est la fonction de pondération \textit{(le poids)} des arêtes.
 
 $$w : E \mapsto \mathbb{R}^+$$
+%
+\\
+Formellement, trouver un ACPM revient à minimiser 
+$$w(H) = \sum_{e \in E(H)} w(e)$$ 
+avec $H \subseteq G$.
+\\ \textit{($H$ est un arbre couvrant : un graphe partiel de $G$, acyclique maximal)}
 
+\subsection{Définition du problème}
+
+\subsection{Algorithmes}
 % ---------- Kruskal ---------- 
 \begin{algorithm} \caption{Kruskal}
 \begin{algorithmic}
