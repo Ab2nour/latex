@@ -38,8 +38,12 @@
 
 \\ \State \textit{Partie 2}
 \For {$i=1$ to $|V(G)|-1$}
-    \State $p[v] := \emptyset$
-    \State $d[v] := +\infty$
+    \ForEach {arc $(u, v)$}
+        \If {$(d[u ,v] < d[u] + w(u ,v))$}
+            \State $p[v] := u$
+            \State $d[v] := d[u] + w(u, v)$
+        \Endif
+    \EndFor
 \EndFor
 \end{algorithmic}
 \end{algorithm}
