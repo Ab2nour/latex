@@ -36,7 +36,15 @@ $$w(H) = \sum_{e \in E(H)} w(e)$$
 avec $H \subseteq G$.
 \\ \textit{($H$ est un arbre couvrant : un graphe partiel de $G$, acyclique maximal)}
 
-\subsection{Définition du problème}
+\subsection{Méta-algorithme}
+
+- Règle Rouge : Sélectionner un cycle $C$ sans aucune arête rouge.
+Colorier en rouge l’arête $e$ sans couleur de $C$ qui a le poids maximum.
+\\- Règle Bleue : Sélectionner une coupe $\partial(x)$ qui ne comporte aucune arête bleue.
+Colorier en bleu l’arête sans couleur de poids minimum de $\partial(x)$. 
+%
+$\partial(x)$ L’ensemble des arêtes qui ont une extrémité dans $x$ et l’autre dans $\overline{x}$. 
+
 
 \subsection{Algorithmes}
 % ---------- Kruskal ---------- 
