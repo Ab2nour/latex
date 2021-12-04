@@ -33,32 +33,12 @@
 \\ \State $L =$ la liste des arêtes triées par poids croissant
 
 \\\ForEach {$e \in L$ (pris dans l'ordre)}
-    \If {$(d[v] > d[u] + w(u ,v))$}
-        \State $d[v] := d[u] + w(u, v)$
-        \State $p[v] := u$
+    \If {$e$ a ses deux extrémités dans deux Composantes Connexes différentes}
+        \State $F := F \cup \{e\}$
     \EndIf
 \EndFor
 
-
-\\ \State \textit{Partie 2 : Calcul des plus courts chemins}
-\For {$i=1$ to $|V(G)|-1$}
-    \ForEach {arc $(u, v)$}
-        \If {$(d[v] > d[u] + w(u ,v))$}
-            \State $d[v] := d[u] + w(u, v)$
-            \State $p[v] := u$
-        \EndIf
-    \EndFor
-\EndFor
-
-
-\\ \State \textit{Partie 3 : Détection de cycle de poids négatif}
-\ForEach {arc $(u, v)$}
-    \If {$(d[u] > d[u] + w(u ,v))$}
-    \State \textbf{return} Impossible \textit{(cycle de poids négatif)}
-    \EndIf
-\EndFor
-
-\\ \State \textbf{return} $p$
+\\ \State \textbf{return} $F$
 \end{algorithmic}
 \end{algorithm}
 
