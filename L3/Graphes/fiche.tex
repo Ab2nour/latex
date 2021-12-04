@@ -151,36 +151,18 @@
 \begin{algorithm} \caption{Edmonds-Karp}
 \begin{algorithmic}
 
-\State \textbf{Entrée :} $G = (V, E, w)$, un graphe pondéré et $s$ un sommet de départ
-\State \textbf{Sortie :} $T = (V, F)$ un Arbre de Plus Court Chemin
+\\ \State Au lieu de prendre n’importe quel chemin améliorant de $s$ à $t$, on prend le plus court en nombre d’arcs et on fait un BFS sur le graphe résiduel $G_f$.
+
+\\ \State \textbf{Entrée :} $G = (V, E, c)$, un graphe avec une capacité pour chaque arc
+\State \textbf{Sortie :} $f$, le flot maximum
 
 \\ \State \textbf{Complexité :} %todo
 
-\\ \State \textit{Partie 1 : Initialisation}
-\ForEach {$v \in V(G)$}
-    \State $d[v] := +\infty$
-    \State $p[v] := \emptyset$
-\EndFor
-
-\\ \State $d[s] := 0$
-\State In $:= \emptyset$
-\State Out $:= V(G)$
-
-\\\\ \State \textit{Partie 2 : Calcul des plus courts chemins}
-\While {$|$In$| < n$}
-    \State Soit $x$ le sommet de Out avec la plus petite valeur $d[x]$
-    \State In $:=$ In $\cup \{x\}$
-    \State Out $:=$ Out$\backslash \{x\}$
-    
-    \\ \ForEach {$z \in N(x)$}
-        \If {$(d[z] > d[x] + w(x, z)$}
-            \State $d[v] := d[x] + w(x, z)$
-            \State $p[z] := x$
-        \EndIf
-    \EndFor
+\\ \While {$\exists P$ un chemin $f-$améliorant dans $G$}
+    \State On augmente le flot le long de $P$
 \EndWhile
 
-\\ \State \textbf{return} $p$
+\\ \State \textbf{return} $f$
 \end{algorithmic}
 \end{algorithm}
 
