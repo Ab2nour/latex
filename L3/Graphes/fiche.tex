@@ -91,7 +91,9 @@
 
 \\ \State \textit{Partie 2 : Calcul des plus courts chemins}
 \While {$|$In$| < n$}
-    \State Soit $x$ le sommet de $Out$ avec la plus petite valeur $d[x]$
+    \State Soit $x$ le sommet de Out avec la plus petite valeur $d[x]$
+    \State In $:=$ In $\cup \{x\}$
+    \State Out $:=$ Out$\backslash \{x\}$
     
     \\ \State Soit $e$ l'arête choisie à l'instruction précédente
     \State $F = F \cup \{e\}$ (\textit{avec $e = \{x, y\}$})
