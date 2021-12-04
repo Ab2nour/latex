@@ -31,17 +31,17 @@
 
 \\ \State \textit{Partie 1 : Initialisation}
 \ForEach {$v \in V(G)$}
-    \State $p[v] := \emptyset$
     \State $d[v] := +\infty$
+    \State $p[v] := \emptyset$
 \EndFor
 
 
 \\ \State \textit{Partie 2}
 \For {$i=1$ to $|V(G)|-1$}
     \ForEach {arc $(u, v)$}
-        \If {$(d[v] < d[u] + w(u ,v))$}
-            \State $p[v] := u$
+        \If {$(d[v] > d[u] + w(u ,v))$}
             \State $d[v] := d[u] + w(u, v)$
+            \State $p[v] := u$
         \EndIf
     \EndFor
 \EndFor
