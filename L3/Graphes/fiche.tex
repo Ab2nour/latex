@@ -52,16 +52,18 @@
 
 \\ \State \textbf{Complexité :} $O(n\log_2(n) + m)$ \textit{avec tas de Fibonacci} 
 
-\\ \State Soit $S$ un sommet de $G$ quelconque
+\\ \State Soit $S$ un sommet de $G$ quelconque.
 
 \\ \State $F := \emptyset$
 \\ \State $C := \{S\}$
 
-\\\ForEach {$e \in L$ (pris dans l'ordre)}
-    \If {$e$ a ses deux extrémités dans deux Composantes Connexes différentes}
-        \State $F := F \cup \{e\}$
-    \EndIf
-\EndFor
+\\\While {$|C| \neq n-1$}
+    \State On applique la règle bleue sur $\partial(C)$
+    
+    \\ \State Soit $e$ l'arête choisie à l'instruction précédente
+    \State $F = F \cup \{e\}$ \textit{(avec $e = \{x, y\}$}
+    \State $C = C \cup \{x, y\}$
+\EndWhile
 
 \\ \State \textbf{return} $F$
 \end{algorithmic}
