@@ -1,6 +1,7 @@
 \documentclass{article}      % Specifies the document class
 
 \usepackage{amsmath}
+\usepackage{amssymb}
 \usepackage[noend]{algpseudocode}
 \usepackage{algorithm}
 
@@ -20,6 +21,13 @@
 
 
 \begin{document}
+
+\section{Arbre couvrant de poids minimum (ACPM)}
+
+Soit $G = (V, E, w)$ un graphe.
+$w$ \textit{(w pour weight)} est la fonction de pondération \textit{(le poids)} des arêtes.
+
+$$w : E \mapsto \mathbb{R}^+$$
 
 % ---------- Kruskal ---------- 
 \begin{algorithm} \caption{Kruskal}
