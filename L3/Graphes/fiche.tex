@@ -25,15 +25,18 @@
 \begin{algorithm} \caption{Kruskal}
 \begin{algorithmic}
 
-\State \textbf{Entrée :} $G = (V, E)$, un graphe orienté valué et un sommet $S$
+\State \textbf{Entrée :} $G = (V, E, w)$, un graphe pondéré
 \State \textbf{Sortie :} $T = (V, F)$ un Arbre Couvrant de Poids Minimum de $G$
 
-\\ \State \textbf{Complexité :} $O(n\times m)$
+\\ \State \textbf{Complexité :} $O(m\log_2(n) + n + m \cdot \alpha(n,m))$
 
-\\ \State \textit{Partie 1 : Initialisation}
-\ForEach {$v \in V(G)$}
-    \State $d[v] := +\infty$
-    \State $p[v] := \emptyset$
+\\ \State $L =$ la liste des arêtes triées par poids croissant
+
+\\\ForEach {$e \in L$ (pris dans l'ordre)}
+    \If {$(d[v] > d[u] + w(u ,v))$}
+        \State $d[v] := d[u] + w(u, v)$
+        \State $p[v] := u$
+    \EndIf
 \EndFor
 
 
