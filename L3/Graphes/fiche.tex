@@ -70,6 +70,33 @@
 \end{algorithm}
 
 
+% ---------- Dijkstra ---------- 
+\begin{algorithm} \caption{Dijkstra}
+\begin{algorithmic}
+
+\State \textbf{Entrée :} $G = (V, E, w)$, un graphe pondéré et $S$ un sommet de départ
+\State \textbf{Sortie :} $T = (V, F)$ un Arbre Couvrant de Poids Minimum de $G$
+
+\\ \State \textbf{Complexité :} $O(n\log_2(n) + m)$ \textit{avec tas de Fibonacci} 
+
+\\ \State Soit $S$ un sommet de $G$ quelconque.
+
+\\ \State $F := \emptyset$
+\\ \State $C := \{S\}$
+
+\\\While {$|C| \neq n-1$}
+    \State On applique la règle bleue sur $\partial(C)$
+    
+    \\ \State Soit $e$ l'arête choisie à l'instruction précédente
+    \State $F = F \cup \{e\}$ (\textit{avec $e = \{x, y\}$})
+    \State $C = C \cup \{x, y\}$
+\EndWhile
+
+\\ \State \textbf{return} $F$
+\end{algorithmic}
+\end{algorithm}
+
+
 % ---------- Bellman-Ford ---------- 
 \begin{algorithm} \caption{Bellman \textit{(Bellman-Ford)}}
 \begin{algorithmic}
