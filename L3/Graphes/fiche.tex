@@ -8,10 +8,10 @@
 \algnewcommand\algorithmicforeach{\textbf{for each}}
 \algdef{S}[FOR]{ForEach}[1]{\algorithmicforeach\ #1\ \algorithmicdo}
 
-\usepackage{xpatch}
 
 % ---------- hack to remove indent ----------
 % https://tex.stackexchange.com/questions/354564/how-to-remove-leading-indentation-from-algorithm
+\usepackage{xpatch}
 \makeatletter
 \xpatchcmd{\algorithmic}
   {\ALG@tlm\z@}{\leftmargin\z@\ALG@tlm\z@}
@@ -23,10 +23,11 @@
 
 \begin{algorithm} \caption{Bellman \textit{(Bellman-Ford)}}
 \begin{algorithmic}
-\Require $G = (V, E)$, un graphe orienté valué et un sommet $S$
-\Ensure $T$ une arborescence de plus court chemin ou Faux si pas possible
 
-\State \textbf{Complexité:} $O(nm)$
+\State \textbf{Entrée :} $G = (V, E)$, un graphe orienté valué et un sommet $S$
+\State \textbf{Sortie :} $T$ une arborescence de plus court chemin ou Faux si pas possible
+
+\\ \State \textbf{Complexité :} $O(n\times m)$
 
 \\ \State \textit{Partie 1 : Initialisation}
 \ForEach {$v \in V(G)$}
