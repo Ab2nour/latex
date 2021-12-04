@@ -25,7 +25,7 @@
 \begin{algorithmic}
 
 \State \textbf{Entrée :} $G = (V, E)$, un graphe orienté valué et un sommet $S$
-\State \textbf{Sortie :} $T$ une arborescence de plus court chemin ou Faux si pas possible
+\State \textbf{Sortie :} $T$ une arborescence de plus court chemin ou Impossible si pas possible
 
 \\ \State \textbf{Complexité :} $O(n\times m)$
 
@@ -36,7 +36,7 @@
 \EndFor
 
 
-\\ \State \textit{Partie 2}
+\\ \State \textit{Partie 2 : Calcul des plus courts chemins}
 \For {$i=1$ to $|V(G)|-1$}
     \ForEach {arc $(u, v)$}
         \If {$(d[v] > d[u] + w(u ,v))$}
@@ -45,6 +45,16 @@
         \EndIf
     \EndFor
 \EndFor
+
+
+\\ \State \textit{Partie 3 : Détection de cycle de poids négatif}
+\ForEach {arc $(u, v)$}
+    \If {$(d[u] > d[u] + w(u ,v))$}
+    \State \textbf{return} Impossible \textit{(cycle de poids négatif)}
+    \EndIf
+\EndFor
+
+\\ \State \textbf{return} $p$
 \end{algorithmic}
 \end{algorithm}
 
