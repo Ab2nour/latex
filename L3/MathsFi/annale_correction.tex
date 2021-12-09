@@ -124,15 +124,20 @@ Quel est le taux mensuel $i_m$ équivalent au taux $i$ ? Le résultat sera donn�
 Le taux mensuel $i_m$ se doit de vérifier, avec $C$ capital de départ quelconque :
 $$C(i_m + 1)^{12} = C(i+1)$$
 d'où
-$$\boxed{i_m = (i+1)^{\frac{1}{12}} - 1} = 1.75^{\frac{1}{12}}-1 = \boxed{0.047739}$$
-Le taux mensuel $i_m$ équivalent est de $0.047739$.
+$$\boxed{i_m = (i+1)^{\frac{1}{12}} - 1} = 1.0075^{\frac{1}{12}}-1 = \boxed{0.000623}$$
+Le taux mensuel $i_m$ équivalent est de $0.000623$.
 \\%
 \\%
 \textcolor{exogris}{\textbf{3.2.2}
 Déterminer la valeur acquise $V^{'}_{acq}$ de ces versements mensuels à la date 01/01/2024 lorsque les intérêts sont capitalisés au taux mensuel $i_m$. Que remarquez-vous ?
 }%
 \\%
-Ma réponse
+Du 01/01/2020 jusqu'au 01/12/2023 il y a 48 mois.
+$$V^{deb}_{acq} = a(i+1)\cdot\dfrac{(i+1)^n-1}{i}$$
+Application numérique : on a donc ici $n$ = 48, $i$ = $i_m$ = 0.000623 et $a$ = 1000.
+Soit :
+$$V'^{deb}_{acq} = 1000 \cdot 1.000623\cdot\dfrac{1.000623^{48}-1}{0.000623} = \boxed{48739.85\text{ \texteuro}}$$
+On remarque que les deux placements ne sont pas équivalents : la stratégie annuelle est plus fructueuse que la stratégie mensuelle.
 
 
 
@@ -188,9 +193,11 @@ Proposer deux formules calculant respectivement les valeurs actualisées nettes 
 }
 \\%
 D'après le cours on a :
-$$VAN_1(\tau) = -70000 + \dfrac{30000}{(1+\tau)} + \dfrac{45000}{(1+\tau)^2} + \dfrac{40000}{(1+\tau)^3}$$
+$$VAN(\tau) = -V_0 + \sum_{i=1}^n \dfrac{V_i}{(1+\tau)^{p_i}}$$
+d'où :
+$$\boxed{VAN_1(\tau) = -70000 + \dfrac{30000}{(1+\tau)} + \dfrac{45000}{(1+\tau)^2} + \dfrac{40000}{(1+\tau)^3}}$$
 et 
-$$VAN_2(\tau) = -60000 + \dfrac{15000}{(1+\tau)} + \dfrac{40000}{(1+\tau)^2} + \dfrac{50000}{(1+\tau)^3}$$
+$$\boxed{VAN_2(\tau) = -60000 + \dfrac{15000}{(1+\tau)} + \dfrac{40000}{(1+\tau)^2} + \dfrac{50000}{(1+\tau)^3}}$$
 \\%
 \\%
 \textcolor{exogris}{\textbf{5.2.}
