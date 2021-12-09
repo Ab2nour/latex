@@ -86,9 +86,18 @@ $$C_5 = C\cdot(i+1)^5 \implies C_5 = 900 \cdot 1.018^5 = \boxed{983.97\text{ \t
 En fait, le taux d’intérêt annuel est égal à $i_1$ = 1\% les deux premières années et à $i_2$ = 2\% les trois dernières. Préciser quel sera le nouveau montant $C^{'}_5$ à la fin des 5 années.
 }
 \\%
-todo: Blabla on divise en deux
-$$C^{'}_5 = C\cdot(i_1+1)^2\cdot(i_2+1)^3$$
+On raisonne de la même façon que pour l'exercice \textbf{1.2}.
+On décompose les 5 ans en deux périodes :
+\\\\\textbf{Période 1} : Les 2 premières années (année 0 $\rightarrow$ année 2)
+\\Le capital de départ est toujours $C$. On ré-applique la formule sur 2 ans donc avec $n=2$, avec $C_2$ le capital obtenu en début d'année 2 :
+$$C_2 = C \cdot (i_1+1)^2 = 900 \cdot 1.01^2 = 918.09 \text{ \texteuro}$$
+\\\textbf{Période 2} : Les 3 dernières années (année 2 $\rightarrow$ année 5)
+\\Le nouveau capital de départ est $C_2$. On prend $n = 3$.
+$$C^{'}_5 = C_2\cdot(i_2+1)^3$$
+$$= C\cdot(i_1+1)^2\cdot(i_2+1)^3$$
 $$\implies C^{'}_5 = 900\cdot1.01^2\cdot1.02^3 = \boxed{974.28\text{ \texteuro}}$$
+%
+Le nouveau montant $C'_5$ sera donc de 974.28 \texteuro à la fin des 5 années.
 \\%
 \\%
 \textcolor{exogris}{\textbf{2.3.}
