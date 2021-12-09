@@ -71,6 +71,19 @@ On cherche à obtenir $i$ en connaissance des autres termes d'après la formule 
 D'après la question précédente on a :
 $$\implies V_2 = C_1 \cdot (i+1)^{2} + C_2 \cdot (i+1)$$
 $$\implies C_1 \cdot (i+1)^2 + C_2 \cdot (i+1) - V_2 = 0$$
+On développe les termes en $(i+1)$ :
+$$\implies C_1 \cdot i^2 + (2C_1 + C_2) \cdot i + C_1 + C_2 - V_2 = 0$$
+On identifie un polynôme de degré 2 d'inconnue $i$, de la forme $ai^2 + bi + c$ avec $a = C_1$, $b = 2C_1 + C_2$ et $c = C_1 + C_2 - V_2$.
+%
+On calcule $\Delta$ :
+$$\Delta = b^2 - 4ac$$
+$$\implies \Delta = (2C_1 + C_2)^2 - 4 \cdot C_1 \cdot (C_1 + C_2 - V_2)$$
+$$= 8620096$$
+$$\implies \Delta > 0$$
+Donc l'équation admet deux solutions :
+$$i = \dfrac{-b + \sqrt{\Delta}}{2a} \text{   ou   } i = \dfrac{-b - \sqrt{\Delta}}{2a}$$
+$$\implies i = 0.015 \text{   ou   } i = -2.43$$
+Or on recherche $i$ tel que $i > 0$ d'où $i = 0.015$.
 
 % ---------- Exercice 2 ----------
 \subsection{Exercice n°2}
