@@ -53,8 +53,8 @@ $$V^{deb}_{act} = a(\tau+1)\cdot\dfrac{1-\frac{1}{(\tau+1)^n}}{\tau}$$
 \section{Versement initial unique}
 
 \subsection{Capitalisation}
-On investit un capital de départ et on cherche à savoir combien on gagnera plus tard : c'est la \underline{capitalisation}. 
-\\ On raisonne par unité de temps : les  \underline{périodes} \textit{(une année en général)}.
+On investit un capital de départ et on cherche à savoir combien on gagnera plus tard : c'est la \textbf{capitalisation}. 
+\\ On raisonne par unité de temps : les  \textbf{périodes} \textit{(une année en général)}.
 
 \subsubsection{Au bout de 1 période}
 
@@ -90,7 +90,7 @@ avec :
 
 
 \subsection{Passage période annuelle à période mensuelle}
-Soit $i$ le taux d'intérêt \underline{annuel} et $i_m$ le taux d'intérêt \underline{mensuel}.
+Soit $i$ le taux d'intérêt \textbf{annuel} et $i_m$ le taux d'intérêt \textbf{mensuel}.
 
 \begin{figure}[H]
     \centering
@@ -102,7 +102,7 @@ $$C(i_m+1)^{12} = C(i+1)$$ $$\implies \boxed{i_m = (i+1)^{\frac{1}{12}} - 1}$$
 
 
 \subsection{Actualisation}
-On veut savoir combien investir pour obtenir plus tard un capital défini : c'est l'\underline{actualisation}.
+On veut savoir combien investir pour obtenir plus tard un capital défini : c'est l'\textbf{actualisation}.
 
 
 \begin{figure}[h]
@@ -128,9 +128,10 @@ $$\implies \boxed{V_{act} = \dfrac{V_f}{(\tau+1)^n}}$$
 
 
 \section{Versements constants}
-Ici, on ne suppose plus un versement initial, mais des versements constants en \underline{début de période}, de valeur constante $a$.
 
-\subsection{Capitalisation}
+\subsection{En début de période}
+Ici, on ne suppose plus un versement initial, mais des versements constants en \textbf{début de période}, de valeur constante $a$.
+\subsubsection{Capitalisation}
 
 \begin{figure}[H]
     \centering
@@ -140,7 +141,7 @@ Ici, on ne suppose plus un versement initial, mais des versements constants en \
 
 $$\boxed{V^{deb}_{acq} = a(i+1)\cdot\dfrac{(i+1)^n-1}{i}}$$
 
-\subsection{Actualisation}
+\subsubsection{Actualisation}
 
 \begin{figure}[H]
     \centering
@@ -150,4 +151,10 @@ $$\boxed{V^{deb}_{acq} = a(i+1)\cdot\dfrac{(i+1)^n-1}{i}}$$
 
 $$\boxed{V^{deb}_{act} = a(\tau+1)\cdot\dfrac{1-\frac{1}{(\tau+1)^n}}{\tau}}$$
 
+\section {Jsp}
+\subsection{VAN}
+$$\boxed{VAN(\tau) = -V_0 + \sum_{i=1}^n \dfrac{V_i}{(1+\tau)^{p_i}}}$$
+\subsection{TRI}
+Le Taux de Rendement Interne $\tau_{tri}$ est une solution de l'équation 
+$$VAN(\tau_{tri}) = 0$$
 \end{document}
