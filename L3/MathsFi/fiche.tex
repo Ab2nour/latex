@@ -44,6 +44,8 @@ $$V_{act} = \dfrac{V_f}{(\tau+1)^n}$$
 $$V^{deb}_{acq} = a(i+1)\cdot\dfrac{(i+1)^n-1}{i}$$
 
 $$V^{deb}_{act} = a(\tau+1)\cdot\dfrac{1-\frac{1}{(\tau+1)^n}}{\tau}$$
+
+$$VAN(\tau) = -V_0 + \sum_{i=1}^n \dfrac{V_i}{(1+\tau)^{p_i}}$$
 }
 
 
@@ -195,5 +197,6 @@ $$VAN(\tau) = -10000 + \dfrac{2000}{(1+\tau)} + \dfrac{5000}{(1+\tau)^2} + \dfra
 Le Taux de Rendement Interne $\tau_{tri}$ est une solution de l'équation 
 $$VAN(\tau_{tri}) = 0$$
 %
-\\Il signifie (pour les cas simples que nous voyons)
+\\Il signifie (pour les cas simples que nous voyons) que le taux d'actualisation $\tau$ doit être inférieur à $\tau_{tri}$ pour que le projet soit rentable, soit :
+$$\tau < \tau_{tri} \implies \text{Le projet est rentable.}$$
 \end{document}
