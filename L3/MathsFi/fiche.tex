@@ -128,6 +128,10 @@ $$\implies \boxed{V_{act} = \dfrac{V_f}{(\tau+1)^n}}$$
 
 
 \section{Versements constants}
+\subsection{Définitions}
+- \textbf{Terme à échoir} : paiement en \textbf{début} de période.
+%
+\\ - \textbf{Terme échu} : paiement en \textbf{fin} de période.
 
 \subsection{En début de période}
 Ici, on ne suppose plus un versement initial, mais des versements constants en \textbf{début de période}, de valeur constante $a$.
@@ -162,10 +166,27 @@ $$V^{deb}_{acq} = a\cdot\dfrac{(i+1)^n-1}{i}$$
 \subsubsection{Actualisation}
 $$V^{deb}_{act} = a\cdot\dfrac{1-\frac{1}{(\tau+1)^n}}{\tau}$$
 
-\section {Jsp}
+\section {Situation financière d'un projet}
+Nous cherchons à évaluer la situation financière de projets étant donné un tableau résumant l'investissement de départ et les différents flux.
 \subsection{VAN}
+Voici la formule générale :
 $$\boxed{VAN(\tau) = -V_0 + \sum_{i=1}^n \dfrac{V_i}{(1+\tau)^{p_i}}}$$
+
+\subsubsection{Un exemple}
+Pour mieux comprendre, voici un exemple de projet, décrit par un tableau : 
+\begin{center}
+\begin{tabular}{ |c|c|c|c|c|c| } 
+ \hline
+ Années & 0 & 1 & 2 & 3 & 4\\ \hline
+ Flux & -10000 & 2000 & 5000 & 5500 & 5000\\ \hline
+\end{tabular}
+\end{center}
+La $VAN$ est donc de :
+$$VAN(\tau) = -10000 + \dfrac{2000}{(1+\tau)} + \dfrac{5000}{(1+\tau)^2} + \dfrac{5500}{(1+\tau)^3} + \dfrac{5000}{(1+\tau)^4}$$
+
 \subsection{TRI}
 Le Taux de Rendement Interne $\tau_{tri}$ est une solution de l'équation 
 $$VAN(\tau_{tri}) = 0$$
+
+Il signifie (pour les cas simples que nous voyons)
 \end{document}
