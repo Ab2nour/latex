@@ -38,24 +38,22 @@
 \begin{algorithm}[H] \caption{Heuristique gloutonne}
 \begin{algorithmic}
 
-\\ \State Au lieu de prendre n’importe quel chemin améliorant de $s$ à $t$, on prend le plus court en nombre d’arcs et on fait un BFS sur le graphe résiduel $G_f$.
+\\ \State \textbf{Entrée :} $G = (V, E)$
+\State \textbf{Sortie :} $c : V \mapsto \mathbb{N}^+$, une coloration propre
 
-\\ \State \textbf{Entrée :} $G = (V, E, c)$, un graphe avec une capacité pour chaque arc
-\State \textbf{Sortie :} $f$, le flot maximum
+\\ \State Soit $\pi = v_1, v_2, ..., v_n$ un ordre total des sommets
 
-\\ \State \textbf{Complexité :} %todo
+\\ \For {$i=1$ to $n$}
+    \State $c(v_i) =$ la plus petite couleur disponible dans $N(v_i)$
+\EndFor
 
-\\ \While {$\exists P$ un chemin $f-$améliorant dans $G$}
-    \State On augmente le flot le long de $P$
-\EndWhile
-
-\\ \State \textbf{return} $f$
+\\ \State \textbf{return} $C$
 \end{algorithmic}
 \end{algorithm}
 
 \begin{figure}[H]
     \centering
-     \scalebox{.5}{\includegraphics{limouzy.png}}
+     \scalebox{.35}{\includegraphics{limouzy.png}}
     \\Hair'istique gloutonne
 \end{figure}
 
