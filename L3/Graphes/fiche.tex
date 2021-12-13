@@ -4,6 +4,8 @@
 \usepackage{amssymb}
 \usepackage[noend]{algpseudocode}
 \usepackage{algorithm}
+\usepackage{graphicx}
+\usepackage{float}
 
 % ---------- add foreach ----------
 \algnewcommand\algorithmicforeach{\textbf{for each}}
@@ -31,7 +33,32 @@
 \tableofcontents
 \newpage
 
-\section{Todo: la coloration}
+\section{Coloration}
+% ---------- Heuristique gloutonne ---------- 
+\begin{algorithm}[H] \caption{Heuristique gloutonne}
+\begin{algorithmic}
+
+\\ \State Au lieu de prendre n’importe quel chemin améliorant de $s$ à $t$, on prend le plus court en nombre d’arcs et on fait un BFS sur le graphe résiduel $G_f$.
+
+\\ \State \textbf{Entrée :} $G = (V, E, c)$, un graphe avec une capacité pour chaque arc
+\State \textbf{Sortie :} $f$, le flot maximum
+
+\\ \State \textbf{Complexité :} %todo
+
+\\ \While {$\exists P$ un chemin $f-$améliorant dans $G$}
+    \State On augmente le flot le long de $P$
+\EndWhile
+
+\\ \State \textbf{return} $f$
+\end{algorithmic}
+\end{algorithm}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics{limouzy.png}
+    \\Hair'istique gloutonne
+\end{figure}
+
 \section{Arbre couvrant de poids minimum (ACPM)}
 
 \subsection{Définition du problème}
@@ -58,7 +85,7 @@ $\partial(x)$ L’ensemble des arêtes qui ont une extrémité dans $x$ et l’a
 
 \subsection{Algorithmes}
 % ---------- Kruskal ---------- 
-\begin{algorithm} \caption{Kruskal}
+\begin{algorithm}[H] \caption{Kruskal}
 \begin{algorithmic}
 
 \State \textbf{Entrée :} $G = (V, E, w)$, un graphe pondéré
@@ -80,7 +107,7 @@ $\partial(x)$ L’ensemble des arêtes qui ont une extrémité dans $x$ et l’a
 
 
 % ---------- Jarnik-Prim ---------- 
-\begin{algorithm} \caption{Jarnik-Prim}
+\begin{algorithm}[H] \caption{Jarnik-Prim}
 \begin{algorithmic}
 
 \State \textbf{Entrée :} $G = (V, E, w)$, un graphe pondéré
@@ -113,7 +140,7 @@ Trouver tous les plus courts chemins à partir d’un sommet $s$ vers tous les a
 Le résultat formera un Arbre des plus courts chemins enraciné en $s$.
 
 % ---------- Dijkstra ---------- 
-\begin{algorithm} \caption{Dijkstra}
+\begin{algorithm}[H] \caption{Dijkstra}
 \begin{algorithmic}
 
 \State \textbf{Entrée :} $G = (V, E, w)$, un graphe pondéré et $s$ un sommet de départ
@@ -151,7 +178,7 @@ Le résultat formera un Arbre des plus courts chemins enraciné en $s$.
 
 
 % ---------- Bellman-Ford ---------- 
-\begin{algorithm} \caption{Bellman \textit{(Bellman-Ford)}}
+\begin{algorithm}[H] \caption{Bellman \textit{(Bellman-Ford)}}
 \begin{algorithmic}
 
 \State \textbf{Entrée :} $G = (V, E)$, un graphe orienté valué et un sommet $s$
@@ -193,7 +220,7 @@ Le résultat formera un Arbre des plus courts chemins enraciné en $s$.
 \subsection{Définition du problème}
 
 % ---------- Edmonds-Karp ---------- 
-\begin{algorithm} \caption{Edmonds-Karp}
+\begin{algorithm}[H] \caption{Edmonds-Karp}
 \begin{algorithmic}
 
 \\ \State Au lieu de prendre n’importe quel chemin améliorant de $s$ à $t$, on prend le plus court en nombre d’arcs et on fait un BFS sur le graphe résiduel $G_f$.
