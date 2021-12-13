@@ -47,7 +47,7 @@
     \State $c(v_i) =$ la plus petite couleur disponible dans $N(v_i)$
 \EndFor
 
-\\ \State \textbf{return} $C$
+\\ \State \textbf{return} $c$
 \end{algorithmic}
 \end{algorithm}
 
@@ -144,8 +144,6 @@ Le résultat formera un Arbre des plus courts chemins enraciné en $s$.
 \State \textbf{Entrée :} $G = (V, E, w)$, un graphe pondéré et $s$ un sommet de départ
 \State \textbf{Sortie :} $T = (V, F)$ un Arbre de Plus Court Chemin
 
-\\ \State \textbf{Complexité :} %todo
-
 \\ \State \textit{Partie 1 : Initialisation}
 \ForEach {$v \in V(G)$}
     \State $d[v] := +\infty$
@@ -225,8 +223,6 @@ Le résultat formera un Arbre des plus courts chemins enraciné en $s$.
 
 \\ \State \textbf{Entrée :} $G = (V, E, c)$, un graphe avec une capacité pour chaque arc
 \State \textbf{Sortie :} $f$, le flot maximum
-
-\\ \State \textbf{Complexité :} %todo
 
 \\ \While {$\exists P$ un chemin $f-$améliorant dans $G$}
     \State On augmente le flot le long de $P$
