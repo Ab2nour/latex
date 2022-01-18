@@ -14,15 +14,18 @@
 $a_i$ = taille de l'objet i
 \\%
 $y_i$ :
-- 0 $\rightarrow$ la boîte n'est pas utilisée
-- 1 -> la boîte est utilisée
+\\- 0 $\rightarrow$ la boîte n'est pas utilisée
+\\- 1 $\rightarrow$ la boîte est utilisée
 \\%
 $x_{i, j}$ :
-- 0 -> l'objet i n'est pas dans la boîte j
-- 1 -> l'objet i est dans la boîte j
+\\- 0 $\rightarrow$ l'objet i n'est pas dans la boîte j
+\\- 1 $\rightarrow$ l'objet i est dans la boîte j
 \\%
-$x_{1, 1} + x_{1, 2} + ... + x_{1, 7} = 1$ -> cela veut dire que l'objet 1 est dans UNE seule boîte
+$x_{1, 1} + x_{1, 2} + ... + x_{1, 7} = 1$ $\rightarrow$ cela veut dire que l'objet 1 est dans \textbf{une} seule boîte
 \\%
 On cherche à minimiser le nombre de boîtes, donc :
-$$min sum_{j=1}^{7} y_j$$
+$$\min \sum_{j=1}^{7} y_j$$
+
+Adjacence : entre deux éléments de même nature
+\\Incidence : entre deux éléments de nature différente
 \end{document}
