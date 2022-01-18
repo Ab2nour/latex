@@ -1,0 +1,28 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+
+\title{Optimisation dans les réseaux}
+\author{aut}
+\date{2022}
+
+\begin{document}
+
+\maketitle
+
+\section{Introduction}
+% p 5/51 livre blanc
+$a_i$ = taille de l'objet i
+\\%
+$y_i$ :
+- 0 $\rightarrow$ la boîte n'est pas utilisée
+- 1 -> la boîte est utilisée
+\\%
+$x_{i, j}$ :
+- 0 -> l'objet i n'est pas dans la boîte j
+- 1 -> l'objet i est dans la boîte j
+\\%
+$x_{1, 1} + x_{1, 2} + ... + x_{1, 7} = 1$ -> cela veut dire que l'objet 1 est dans UNE seule boîte
+\\%
+On cherche à minimiser le nombre de boîtes, donc :
+$$min sum_{j=1}^{7} y_j$$
+\end{document}
