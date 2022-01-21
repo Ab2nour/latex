@@ -52,16 +52,14 @@
 \algdef{S}[FOR]{ForEach}[1]{\algorithmicforeach\ #1\ \algorithmicdo}
 
 
-
 % -------------------- Couleurs --------------------
 \definecolor{definition}{HTML}{2f80ed}
 \definecolor{definition-bg}{HTML}{e0ecfd}
 
-\definecolor{danger}{HTML}{e6505f}
-\definecolor{danger-bg}{HTML}{fce5e7}
+\definecolor{danger-color}{HTML}{e6505f}
+\definecolor{danger-bg-color}{HTML}{fce5e7}
 
 \definecolor{exogris}{gray}{0.4}
-
 
 
 % -------------------- Code --------------------
@@ -89,7 +87,8 @@
     tabsize=2
 }
 
-% -------------------- Styles --------------------
+
+% -------------------- Macros --------------------
 \mdfdefinestyle{definition-style}{%
   innertopmargin=10px,
   innerbottommargin=10px,
@@ -99,14 +98,40 @@
 }
 \newmdenv[style=definition-style]{definition}
 
-\mdfdefinestyle{danger-style}{%
-  innertopmargin=10px,
-  innerbottommargin=10px,
-  linecolor=danger,
-  backgroundcolor=danger-bg,
-  roundcorner=4px
+
+\newcommand\clovisColorfulBlock[1]{
+    % #1 = danger (name)
+    % #2 = danger-color (color)
+    % #3 = danger-bg-color (background color)
+    \mdfdefinestyle{#1-style}{%
+        innertopmargin=10px,
+        innerbottommargin=10px,
+        linecolor=#1-color,
+        backgroundcolor=#1-bg-color,
+        roundcorner=4px
+    }
+    \newmdenv[style=#1-style]{#1}
 }
-\newmdenv[style=danger-style]{danger}
+
+\clovisColorfulBlock{danger}
+
+\newcommand\clovisDefinition[2]{
+    \begin{definition}
+    { \scriptsize \textcolor{definition}{\faIcon{graduation-cap} \textbf{DÉFINITION}}}
+    \vspace{3px}
+    \\ \underline{\textbf{#1}}
+    \vspace{2.5px}
+    \\ #2
+    \end{definition}
+}
+
+\newcommand\clovisDanger[1]{
+    \begin{danger}
+    {\scriptsize \textcolor{danger-color}{\faIcon{exclamation-triangle} \textbf{ATTENTION}}}
+    \vspace{3px}
+    \\ #1
+    \end{danger}
+}
 
 
 % -------------------- Document --------------------
@@ -142,20 +167,16 @@ $x_{1, 1} + x_{1, 2} + ... + x_{1, 7} = 1$ $\rightarrow$ cela veut dire que l'ob
 On cherche à minimiser le nombre de boîtes, donc :
 $$\min \sum_{j=1}^{7} y_j$$
 %
-\begin{definition}
-{ \scriptsize \textcolor{definition}{\faIcon{graduation-cap} \textbf{DÉFINITION}}}
-\vspace{3px}
-\\ \underline{\textbf{Adjacence}}
-\vspace{2.5px}
-\\ Entre deux éléments de même nature.
-\end{definition}
+\clovisDefinition{Adjacence}{
+   Entre deux éléments de même nature.
+}
 
-\begin{definition}
-{ \scriptsize \textcolor{definition}{\faIcon{graduation-cap} \textbf{DÉFINITION}}}
-\vspace{3px}
-\\ \underline{\textbf{Incidence}}
-\vspace{2.5px}
-\\ Entre deux éléments de nature différente.
-\end{definition}
+\clovisDefinition{Incidence}{
+    Entre deux éléments de nature différente.
+}
+
+\clovisDanger{
+    Entre deux éléments de nature différente.
+}
 
 \end{document}
