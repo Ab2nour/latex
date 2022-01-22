@@ -111,6 +111,14 @@
         roundcorner=4px
     }
     \newmdenv[style=#1-style]{#1}
+    
+    \newcommand\clovisDanger[1]{
+        \begin{#1}
+        {\scriptsize \textcolor{#1-color}{\faIcon{exclamation-triangle} \textbf{ATTENTION}}}
+        \vspace{3px}
+        \\ ##1
+        \end{#1}
+    }
 }
 
 \clovisColorfulBlock{danger}
@@ -125,13 +133,7 @@
     \end{definition}
 }
 
-\newcommand\clovisDanger[1]{
-    \begin{danger}
-    {\scriptsize \textcolor{danger-color}{\faIcon{exclamation-triangle} \textbf{ATTENTION}}}
-    \vspace{3px}
-    \\ #1
-    \end{danger}
-}
+
 
 
 % -------------------- Document --------------------
