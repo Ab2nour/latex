@@ -112,7 +112,7 @@
     }
     \newmdenv[style=#1-style]{#1}
     
-    \expandafter\newcommand\csname clovis {\MakeUppercase #1} \endcsname[1]{
+    \expandafter\newcommand\csname clovis#1\endcsname[1]{
         \begin{#1}
         {\scriptsize \textcolor{#1-color}{\faIcon{exclamation-triangle} \textbf{ATTENTION}}}
         \vspace{3px}
@@ -177,7 +177,7 @@ $$\min \sum_{j=1}^{7} y_j$$
     Entre deux éléments de nature différente.
 }
 
-\clovisDanger{
+\clovisdanger{
     Entre deux éléments de nature différente.
 }
 
