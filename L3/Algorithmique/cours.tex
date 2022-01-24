@@ -206,6 +206,8 @@ méthodes :
 \\\tab\tab taille = taille - 1
 \\\tab renvoyer res
 \\fin
+
+
 \subsection{Tas}
 \code{Tas}
 \\avec un tableau : \code{monTas.tab[]}
@@ -233,27 +235,24 @@ méthodes :
 \\\tab\tab tab[i] = x
 \\\tab\tab taille = taille + 1
 \\fin
-%
-%
-\\Algo \code{empiler(x)}
-\\données : self.pile, x:monType
-\\résultat: void
-\\début
-\\    Si ($taille < max$):
-\\        taille = taille + 1
-\\        tab[taille] = x
-\\fin
-%
-\\\\Algo \code{depiler()}
-\\données : self.pile
-\\résultat: res:monType
-\\début
-\\    Si ($\tcbhighmath{taille} > 0$):
-\\        res = tab[taille]
-\\        taille = taille - 1
-\\    renvoyer res
-\\fin
 
+
+\subsection{Ensemble dynamique}
+note : il faut garder l'ensemble dynamique \textbf{ordonné !}
+
+
+\subsection{File de priorité}
+
+\subsection{Collection (ou famille d'ensembles}
+Un ensemble de sous-ensembles de mon ensemble X
+ex : une partition
+
+
+%
+\subsection{Définition de TDA}
+\clovisDefinition{Type de données abstrait}{
+    Un TDA est composé d'un ensemble d'objets similaires dans la forme et dans le comportement, et d'un ensemble d'opérations sur ces objets.
+}
 \section{Analyse et complexité}
 
 \section{Algorithmes gloutons}
