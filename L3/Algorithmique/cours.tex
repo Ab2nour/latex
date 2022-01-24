@@ -57,39 +57,19 @@
 \definecolor{definition}{HTML}{2f80ed}
 \definecolor{definition-bg}{HTML}{e0ecfd}
 
-\definecolor{danger}{HTML}{e6505f}
-\definecolor{danger-bg}{HTML}{fce5e7}
-
-\definecolor{exogris}{gray}{0.4}
+\definecolor{danger-color}{HTML}{e6505f}
+\definecolor{danger-bg-color}{HTML}{fce5e7}
 
 
 
-% -------------------- Code --------------------
-\definecolor{codegreen}{rgb}{0,0.6,0}
-\definecolor{codegray}{rgb}{0.5,0.5,0.5}
-\definecolor{codepurple}{rgb}{0.58,0,0.82}
-\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
-
-\lstdefinestyle{code-style}{
-    backgroundcolor=\color{backcolour},   
-    commentstyle=\color{codegreen},
-    keywordstyle=\color{magenta},
-    numberstyle=\tiny\color{codegray},
-    stringstyle=\color{codepurple},
-    basicstyle=\ttfamily\footnotesize,
-    breakatwhitespace=false,         
-    breaklines=true,                 
-    captionpos=b,                    
-    keepspaces=true,                 
-    numbers=left,                    
-    numbersep=5pt,
-    showspaces=false,                
-    showstringspaces=false,
-    showtabs=false,                  
-    tabsize=2
-}
+\definecolor{gris-color}{HTML}{dadce0}
+\definecolor{blanc-color}{HTML}{fcfcfc}
 
 % -------------------- Styles --------------------
+
+
+
+% -------------------- Macros --------------------
 \mdfdefinestyle{definition-style}{%
   innertopmargin=10px,
   innerbottommargin=10px,
@@ -99,15 +79,55 @@
 }
 \newmdenv[style=definition-style]{definition}
 
-\mdfdefinestyle{danger-style}{%
-  innertopmargin=10px,
-  innerbottommargin=10px,
-  linecolor=danger,
-  backgroundcolor=danger-bg,
-  roundcorner=4px
-}
-\newmdenv[style=danger-style]{danger}
+\newcommand\testos[1]{clovis{\MakeUppercase #1}}
 
+\newcommand\clovisColorfulBlock[1]{
+    % #1 = danger (name)
+    % #2 = danger-color (color)
+    % #3 = danger-bg-color (background color)
+    \mdfdefinestyle{#1-style}{%
+        innertopmargin=10px,
+        innerbottommargin=10px,
+        linecolor=#1-color,
+        backgroundcolor=#1-bg-color,
+        roundcorner=4px
+    }
+    \newmdenv[style=#1-style]{#1}
+
+    
+    \expandafter\newcommand\csname clovis#1\endcsname[1]{
+        \begin{#1}
+        {\scriptsize \textcolor{#1-color}{\faIcon{exclamation-triangle} \textbf{DANGER}}}
+        \vspace{3px}
+        \\ ##1
+        \end{#1}
+    }
+}
+
+\clovisColorfulBlock{danger}
+
+\newcommand\clovisDefinition[2]{
+    \begin{definition}
+    { \scriptsize \textcolor{definition}{\faIcon{graduation-cap} \textbf{DEFINITION}}}
+    \vspace{3px}
+    \\ \underline{\textbf{#1}}
+    \vspace{2.5px}
+    \\ #2
+    \end{definition}
+}
+
+\newcommand\tab{\hspace*{14px}}
+
+% -------------------- Test color box --------------------
+\usepackage[most]{tcolorbox}
+\tcbset{on line, 
+        boxsep=3px, left=0pt,right=0pt,top=0pt,bottom=0pt,
+        boxrule=0.5px,
+        colframe=gris-color,colback=blanc-color,  
+        highlight math style={enhanced}
+        }
+
+\newcommand\code[1]{\tcbox{{\small\tt #1}}}
 
 % -------------------- Document --------------------
 \title{Algorithmique\\De l'analyse à la conception}
@@ -139,13 +159,100 @@ Un langage doit être :
 \end{itemize}
 
 \begin{danger}
-{ \scriptsize \textcolor{danger}{\faIcon{exclamation-triangle} \textbf{ATTENTION}}}
+{ \scriptsize \textcolor{danger-color}{\faIcon{exclamation-triangle} \textbf{ATTENTION}}}
 \vspace{3px}
 \\La différence entre un langage naturel et un langage de programmation est l'\textbf{ambiguïté} : il ne doit y avoir qu'une seule interprétation possible.
 \end{danger}
 
 
 \section{Types de données abstraits}
+note : affectaton avec une flèche vers la gauche
+\\attention : on indice les tableaux de 1 à n !!!
+
+\subsection{Pile}
+\code{Pile}
+\\avec un tableau : \code{maPile.tab[]}
+\\initialise taille = 0
+
+%
+méthodes :
+\\- \code{pileVide()}
+\\- \code{empiler(x)}
+\\- \code{depiler()}
+%
+\\\\Algo \code{pileVide}
+\\données : self.pile
+\\résultat: booléen
+\\début
+\\    retourner taille = 0
+\\fin
+%
+%
+\\Algo \code{empiler(x)}
+\\données : self.pile, x:monType
+\\résultat: void
+\\début
+\\    Si ($taille < max$):
+\\        taille = taille + 1
+\\        tab[taille] = x
+\\fin
+%
+\\\\Algo \code{depiler()}
+\\données : self.pile
+\\résultat: res:monType
+\\début
+\\Si ($\tcbhighmath{taille} > 0$):
+\\\tab res = tab[taille]
+\\\tab\tab taille = taille - 1
+\\\tab renvoyer res
+\\fin
+\subsection{Tas}
+\code{Tas}
+\\avec un tableau : \code{monTas.tab[]}
+attributs :
+\\taille = 0
+\\max
+
+%
+méthodes :
+\\- \code{pere(i)}
+\\- \code{fg(i)}
+\\- \code{fd(i)}
+\\- \code{insérer(x)}
+\\- \code{extraire(i)}
+%
+\\\\Algo \code{tas.insérer(x)}
+\\données : self.tas, x:monType
+\\résultat: void
+\\début
+\\\tab si ($taille < max$)
+\\\tab\tab i = taille + 1
+\\\tab\tab tantque ((i $\neq$ 1) et x $>$ tab[pere(i)])
+\\\tab\tab\tab tab[i] = tab[pere(i)]
+\\\tab\tab\tab i = pere(i)
+\\\tab\tab tab[i] = x
+\\\tab\tab taille = taille + 1
+\\fin
+%
+%
+\\Algo \code{empiler(x)}
+\\données : self.pile, x:monType
+\\résultat: void
+\\début
+\\    Si ($taille < max$):
+\\        taille = taille + 1
+\\        tab[taille] = x
+\\fin
+%
+\\\\Algo \code{depiler()}
+\\données : self.pile
+\\résultat: res:monType
+\\début
+\\    Si ($\tcbhighmath{taille} > 0$):
+\\        res = tab[taille]
+\\        taille = taille - 1
+\\    renvoyer res
+\\fin
 
 \section{Analyse et complexité}
 
