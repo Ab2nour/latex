@@ -142,13 +142,9 @@
 \newpage
 \section{Niveaux de description \textit{de l'élégance du langage}}
 
-\begin{definition}
-{ \scriptsize \textcolor{definition}{\faIcon{graduation-cap} \textbf{DÉFINITION}}}
-\vspace{3px}
-\\ \underline{\textbf{Type}}
-\vspace{2.5px}
-\\ Un ensemble de valeurs.
-\end{definition}
+\clovisDefinition{Type}{
+    Un ensemble de valeurs.
+}
 
 \subsection{Caractéristiques d'un langage}
 Un langage doit être :
@@ -158,12 +154,9 @@ Un langage doit être :
   \item \textbf{implémentable} sur un ordinateur
 \end{itemize}
 
-\begin{danger}
-{ \scriptsize \textcolor{danger-color}{\faIcon{exclamation-triangle} \textbf{ATTENTION}}}
-\vspace{3px}
-\\La différence entre un langage naturel et un langage de programmation est l'\textbf{ambiguïté} : il ne doit y avoir qu'une seule interprétation possible.
-\end{danger}
-
+\clovisdanger{
+La différence entre un langage naturel et un langage de programmation est l'\textbf{ambiguïté} : il ne doit y avoir qu'une seule interprétation possible.
+}
 
 \section{Types de données abstraits}
 note : affectaton avec une flèche vers la gauche
@@ -183,29 +176,29 @@ méthodes :
 \\\\Algo \code{pileVide}
 \\données : self.pile
 \\résultat: booléen
-\\début
+\\début \texttt{
 \\    retourner taille = 0
-\\fin
+\\}fin
 %
 %
 \\Algo \code{empiler(x)}
 \\données : self.pile, x:monType
 \\résultat: void
-\\début
-\\    Si ($taille < max$):
-\\        taille = taille + 1
-\\        tab[taille] = x
-\\fin
+\\début \texttt{
+\\Si (taille $<$ max):
+\\\tab taille = taille + 1
+\\\tab tab[taille] = x
+\\}fin
 %
 \\\\Algo \code{depiler()}
 \\données : self.pile
 \\résultat: res:monType
-\\début
+\\début \texttt{
 \\Si ($\tcbhighmath{taille} > 0$):
 \\\tab res = tab[taille]
 \\\tab\tab taille = taille - 1
 \\\tab renvoyer res
-\\fin
+\\}fin
 
 
 \subsection{Tas}
@@ -226,7 +219,7 @@ méthodes :
 \\\\Algo \code{tas.insérer(x)}
 \\données : self.tas, x:monType
 \\résultat: void
-\\début
+\\début \texttt{
 \\\tab si ($taille < max$)
 \\\tab\tab i = taille + 1
 \\\tab\tab tantque ((i $\neq$ 1) et x $>$ tab[pere(i)])
@@ -234,7 +227,7 @@ méthodes :
 \\\tab\tab\tab i = pere(i)
 \\\tab\tab tab[i] = x
 \\\tab\tab taille = taille + 1
-\\fin
+\\}fin
 
 
 \subsection{Ensemble dynamique}
@@ -243,7 +236,7 @@ note : il faut garder l'ensemble dynamique \textbf{ordonné !}
 
 \subsection{File de priorité}
 
-\subsection{Collection (ou famille d'ensembles}
+\subsection{Collection (ou famille d'ensembles)}
 Un ensemble de sous-ensembles de mon ensemble X
 ex : une partition
 
@@ -264,4 +257,5 @@ ex : une partition
         %\includegraphics{img/bin-packing.png}
     }
 \end{figure}
+
 \end{document}
