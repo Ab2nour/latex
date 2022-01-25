@@ -59,7 +59,8 @@
 \definecolor{danger-color}{HTML}{e6505f}
 \definecolor{danger-bg-color}{HTML}{fce5e7}
 
-\definecolor{exogris}{gray}{0.4}
+\definecolor{gris-color}{HTML}{dadce0}
+\definecolor{blanc-color}{HTML}{fcfcfc}
 
 
 % -------------------- Code --------------------
@@ -98,6 +99,7 @@
 }
 \newmdenv[style=definition-style]{definition}
 
+\newcommand\testos[1]{clovis{\MakeUppercase #1}}
 
 \newcommand\clovisColorfulBlock[1]{
     % #1 = danger (name)
@@ -111,10 +113,11 @@
         roundcorner=4px
     }
     \newmdenv[style=#1-style]{#1}
+
     
     \expandafter\newcommand\csname clovis#1\endcsname[1]{
         \begin{#1}
-        {\scriptsize \textcolor{#1-color}{\faIcon{exclamation-triangle} \textbf{ATTENTION}}}
+        {\scriptsize \textcolor{#1-color}{\faIcon{exclamation-triangle} \textbf{DANGER}}}
         \vspace{3px}
         \\ ##1
         \end{#1}
@@ -125,7 +128,7 @@
 
 \newcommand\clovisDefinition[2]{
     \begin{definition}
-    { \scriptsize \textcolor{definition}{\faIcon{graduation-cap} \textbf{DÉFINITION}}}
+    { \scriptsize \textcolor{definition}{\faIcon{graduation-cap} \textbf{DEFINITION}}}
     \vspace{3px}
     \\ \underline{\textbf{#1}}
     \vspace{2.5px}
@@ -135,6 +138,14 @@
 
 
 
+% -------------------- Test color box --------------------
+\usepackage[most]{tcolorbox}
+\tcbset{on line, 
+        boxsep=3px, left=0pt,right=0pt,top=0pt,bottom=0pt,
+        boxrule=0.5px,
+        colframe=gris-color,colback=blanc-color,  
+        highlight math style={enhanced}
+        }
 
 % -------------------- Document --------------------
 \title{Optimisation dans les Réseaux}
@@ -177,8 +188,35 @@ $$\min \sum_{j=1}^{7} y_j$$
     Entre deux éléments de nature différente.
 }
 
-\clovisdanger{
-    Entre deux éléments de nature différente.
+\begin{figure}[H]
+    \centering
+    \scalebox{1}{\includegraphics{img/eq_chemin.png}}
+    Cette équation signifie : par un noeud passe \textbf{un seul} chemin.
+\end{figure}
+Il y a un arc entrant ($-1$) et un arc sortant (+1) : on obtient donc 0, sauf si c'est l'origine (arc \textbf{sortant} uniquement, donc 1) ou la destination (arc \textbf{entrant} uniquement, donc -1).
+\begin{figure}[H]
+    \centering
+    \scalebox{0.5}{\includegraphics{img/chemins.png}}
+\end{figure}
+
+
+
+
+
+
+
+\clovisDefinition{Comment installer \tcbox{{\small\tt npm}}}{
+    On utilise la commande \tcbox{{\small\tt npm install puppeteer}} pour installer \tcbox{{\small\tt puppeteer}} avec la console.
 }
+
+\clovisDefinition{Comment installer puppeteer}{
+    On utilise la commande \tcbox{{\small\tt npm install puppeteer}} pour installer \tcbox{{\small\tt puppeteer}} avec la console.
+}
+%
+Encadrer dans les maths : $a^2 + b^2 = \tcbhighmath{c^2}$
+\\Tapez la commande \tcbox{{\small\tt print("Hello world")}} dans votre console.
+%\\\fcolorbox{gris-color}{white}{\tt Salut}
+%
+Test longue ligne : \tcbox{{\small\tt print("Hello world"); print("Hello world"); print("Hello world"); print("Hello world"); print("Hello world"); print("Hello world"); }}
 
 \end{document}
