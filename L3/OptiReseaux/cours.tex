@@ -62,6 +62,7 @@
 \definecolor{gris-color}{HTML}{dadce0}
 \definecolor{blanc-color}{HTML}{fcfcfc}
 
+\definecolor{underbrace-color}{HTML}{a0a0a0}
 
 % -------------------- Code --------------------
 \definecolor{codegreen}{rgb}{0,0.6,0}
@@ -137,6 +138,19 @@
 }
 
 
+\newcommand\underbraceColor[2]{
+    \color{underbrace-color} % set color to grey
+    
+    \underbrace{
+        \color{black}{#1} % set color back to black
+    }_{
+        \text{#2}
+    }
+    
+    \color{black} % set color back to black
+}
+
+
 
 % -------------------- Test color box --------------------
 \usepackage[most]{tcolorbox}
@@ -166,17 +180,19 @@
 \end{figure}
 
 $a_i$ = taille de l'objet i
-\\%
-$y_i$ :
-\\- 0 $\rightarrow$ la boîte n'est pas utilisée
-\\- 1 $\rightarrow$ la boîte est utilisée
-\\%
-$x_{i, j}$ :
-\\- 0 $\rightarrow$ l'objet i n'est pas dans la boîte j
-\\- 1 $\rightarrow$ l'objet i est dans la boîte j
-\\%
+\\\\%
+$y_i \begin{cases}
+   0 & \text{si la boite n'est pas utilisée} \\
+   1 & \text{si la boite est utilisée}
+\end{cases}
+\\\\x_{i, j} \begin{cases}
+   0 & \text{si l'objet i n'est pas dans la boîte j} \\
+   1 & \text{si l'objet i est dans la boîte j}
+\end{cases}
+$
+\\\\%
 $x_{1, 1} + x_{1, 2} + ... + x_{1, 7} = 1$ $\rightarrow$ cela veut dire que l'objet 1 est dans \textbf{une} seule boîte
-\\%
+\\\\%
 On cherche à minimiser le nombre de boîtes, donc :
 $$\min \sum_{j=1}^{7} y_j$$
 %
@@ -191,7 +207,15 @@ $$\min \sum_{j=1}^{7} y_j$$
 \begin{figure}[H]
     \centering
     \scalebox{1}{\includegraphics{img/eq_chemin.png}}
+    $$
+    \sum_{j \in V} \underbraceColor{x_{i, j}}{degré sortant} - \sum_{j \in V} x_{j, i} =  \begin{cases}
+       +1 & \text{si } i = s \text{ (origine)}\\
+       -1 & \text{si } i = p \text{ (destination)} \\
+       0 & \text{sinon}
+    \end{cases}
+    $$
     Cette équation signifie : par un noeud passe \textbf{un seul} chemin.
+    \\A gauche degré sortant, à droite degré entrant.
 \end{figure}
 Il y a un arc entrant ($-1$) et un arc sortant (+1) : on obtient donc 0, sauf si c'est l'origine (arc \textbf{sortant} uniquement, donc 1) ou la destination (arc \textbf{entrant} uniquement, donc -1).
 \begin{figure}[H]
