@@ -139,14 +139,13 @@
 
 
 \newcommand\underbraceColor[2]{
-    \color{underbrace-color} % set color to grey
-    
-    \underbrace{
-        \color{black}{#1} % set color back to black
-    }_{
-        \text{#2}
+    \color{underbrace-color} { % set color to grey
+        \underbrace{
+            \color{black}{#1} % set color back to black
+        }_{
+            \text{#2}
+        }
     }
-    
     \color{black} % set color back to black
 }
 
@@ -206,16 +205,14 @@ $$\min \sum_{j=1}^{7} y_j$$
 
 \begin{figure}[H]
     \centering
-    \scalebox{1}{\includegraphics{img/eq_chemin.png}}
     $$
-    \sum_{j \in V} \underbraceColor{x_{i, j}}{degré sortant} - \sum_{j \in V} x_{j, i} =  \begin{cases}
+    \underbraceColor{\sum_{j \in V} x_{i, j}}{degré sortant} - \underbraceColor{\sum_{j \in V} x_{j, i}}{degré entrant} =  \begin{cases}
        +1 & \text{si } i = s \text{ (origine)}\\
        -1 & \text{si } i = p \text{ (destination)} \\
        0 & \text{sinon}
     \end{cases}
     $$
     Cette équation signifie : par un noeud passe \textbf{un seul} chemin.
-    \\A gauche degré sortant, à droite degré entrant.
 \end{figure}
 Il y a un arc entrant ($-1$) et un arc sortant (+1) : on obtient donc 0, sauf si c'est l'origine (arc \textbf{sortant} uniquement, donc 1) ou la destination (arc \textbf{entrant} uniquement, donc -1).
 \begin{figure}[H]
