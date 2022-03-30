@@ -65,25 +65,64 @@
             \paragraph{}
                 The goal of \textbf{New Chess 2\textsuperscript{TM} : Board Game Boogaloo} is to win a regular game of chess by capturing your opponent's master piece, but with a twist. You can alter the course of the game by playing special cards, taking risky but possibly rewarding bets, and much more.
                 
-                
         \subsection{Game Rules}
             \paragraph{Setup :\\}
                 First, setup a traditional $8\times8$ chessboard, as shown in the picture below. Then shuffle all the cards and place them next to the chessboard, accessible to both players, and don't forget to leave an empty space next to the draw pile for the discard pile. Each player draws 5 cards and the game can begin.
+                \begin{figure}[H]
+                        \centering
+                        \newgame
+                        \showboard
+                \end{figure}
                 
             \paragraph{Choosing the 1\textsuperscript{st} player :\\}
                 Play a best-of-3 game of rock-paper-scissors. The winner decides which player gets to start the game.
                 
             \paragraph{Beginning of a turn :\\}
                 At the start of each turn, the player can chose to gamble by choosing "Odd" or "Even", then rolling 5 dices. If they land 3 or more numbers of the chosen type, they can move 2 pieces during their turn instead of 1 (or move the same piece twice). Otherwise, they don't get to play this turn and move on to the next player.
-            
+                
+            \paragraph{Possible actions :\\}
+                Each turn, you have to move one of you pieces (unless you play a card that says otherwise), the possible move being the same as in regular chess :
+                \begin{itemize}
+                    \item The King moves and captures 1 square in any direction.
+                    \begin{figure}[H]
+                        \centering
+                        \scalebox{0.5}{\showboard}
+                    \end{figure}
+                    \item The Rook moves and capture in any number of squares horizontally of vertically.
+                    \begin{figure}[H]
+                        \centering
+                        \scalebox{0.5}{\showboard}
+                    \end{figure}
+                    \item The Bishop moves any number of squares diagonally.
+                    \begin{figure}[H]
+                        \centering
+                        \scalebox{0.5}{\showboard}
+                    \end{figure}
+                    \item The Queen moves any number of squares in any direction.
+                    \begin{figure}[H]
+                        \centering
+                        \scalebox{0.5}{\showboard}
+                    \end{figure}
+                    \item The Knight moves in an L of $2\time3$ squares. It it the only piece able to move over other pieces.
+                    \begin{figure}[H]
+                        \centering
+                        \scalebox{0.5}{\showboard}
+                    \end{figure}
+                    \item The Pawn moves 1 square forward or captures 1 square diagonally in front of it. It can move 2 square forwards if it is its first move.
+                    \begin{figure}[H]
+                        \centering
+                        \scalebox{0.5}{\showboard}
+                    \end{figure}
+                \end{itemize}
+                
             \paragraph{Special Cards :\\}
-            Each player sets their pieces in place before randomly distributing 5 cards to each other from a cards deck. Each card has a special effect described on it, and they can be used each turn with a limit of one card played per turn and player. A card is discarded after being played.
-            The game otherwise unfolds normally. However, when a player only has one card left in his hand, he must shout “UNO” or be forced to discard their last card without playing it.
+                Each player sets their pieces in place before randomly distributing 5 cards to each other from a cards deck. Each card has a special effect described on it, and they can be used each turn with a limit of one card played per turn and player. A card is discarded after being played.
+                The game otherwise unfolds normally. However, when a player only has one card left in his hand, he must shout “UNO” or be forced to discard their last card without playing it.
             
             
             \paragraph{Gambling :\\}
-            At the start of each turn, a player can decide to attempt a “Gamble”. They take 5 dice, roll them, and see the results. If they get a three of a kind, they get to move two pieces during their turn instead of one (a single piece can instead be moved twice). Otherwise, they lose their turn.
-            If they have failed the roll, they can attempt a re-roll. If they then get a three of a kind, they get the two moves, but won't be able to play next turn. If they fail again, they don’t get to play this turn, but they also lose a random piece (King and Queen excluded).
+                At the start of each turn, a player can decide to attempt a “Gamble”. They take 5 dice, roll them, and see the results. If they get a three of a kind, they get to move two pieces during their turn instead of one (a single piece can instead be moved twice). Otherwise, they lose their turn.
+                If they have failed the roll, they can attempt a re-roll. If they then get a three of a kind, they get the two moves, but won't be able to play next turn. If they fail again, they don’t get to play this turn, but they also lose a random piece (King and Queen excluded).
 
     \section{Pertinent Information}
         Chess is hard$\cite{wegochess, coldwire}$.
@@ -129,13 +168,5 @@
                 Coldwire,
                 \href{https://www.thecoldwire.com/why-is-chess-so-hard/}{\underline{\textit{Why is chess so hard?}}}
         \end{thebibliography}
-    
-    \section{Oral}
-        \subsection{Hook}
-            Is chess outdated?
-            Can we reinvent an ancient game blabla like chess?
-        \subsection{Threats} 
-        \subsection{Threats} 
-        \subsection{Threats} 
     
 \end{document}
