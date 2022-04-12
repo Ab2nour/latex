@@ -15,8 +15,8 @@
 \usetikzlibrary{calc}
 %
 % -------------------- Colors --------------------
-\definecolor{definition}{HTML}{2f80ed}
-\definecolor{definition-bg}{HTML}{e0ecfd}
+\definecolor{definition-color}{HTML}{2f80ed}
+\definecolor{definition-bg-color}{HTML}{e0ecfd}
 \definecolor{danger-color}{HTML}{e6505f}
 \definecolor{danger-bg-color}{HTML}{fce5e7}
 \definecolor{code-bg-color}{HTML}{fcfcfc} % todo: temp color
@@ -56,6 +56,14 @@
     \tcbox{{\small\tt #1}}%
 }
 % -------------------- colorful-blocks --------------------
+\mdfdefinestyle{definition-style}{%
+  innertopmargin=10px,
+  innerbottommargin=10px,
+  linecolor=definition,
+  backgroundcolor=definition-bg,
+  roundcorner=4px
+}
+
 \newcommand\clovisColorfulBlock[2]{
     % #1 = danger (name)
     % #2 = Danger (color)
@@ -70,7 +78,7 @@
     \newmdenv[style=#1-style]{#1}
     \expandafter\newcommand\csname clovis#2\endcsname[1]{
         \begin{#1}
-        {\scriptsize \textcolor{#1-color}{\faIcon{running} \textbf{DANGER}}}
+        {\scriptsize \textcolor{#1-color}{\faIcon{running} \textbf{SÉANCE}}}
         \vspace{3px}
         \\ ##1
         \end{#1}
@@ -99,9 +107,8 @@
     objectif trouver sa vitesse
     
     \subsection{27.01}
-    \clovisSeance{wow pas mal}
         absent (malade)
-    
+    \clovisSeance{wow bg}
     
     \subsection{03.02}
     
