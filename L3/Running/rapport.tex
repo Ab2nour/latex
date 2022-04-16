@@ -57,11 +57,14 @@
 }
 % -------------------- colorful-blocks --------------------
 \mdfdefinestyle{definition-style}{%
-  innertopmargin=10px,
-  innerbottommargin=10px,
-  linecolor=definition,
-  backgroundcolor=definition-bg,
-  roundcorner=4px
+innertopmargin=10px,
+innerbottommargin=10px,
+linecolor=definition-color,
+backgroundcolor=definition-bg-color,
+linewidth=2px,
+topline=false,
+bottomline=false,
+rightline=false,
 }
 
 \newcommand\clovisColorfulBlock[2]{
@@ -69,13 +72,14 @@
     % #2 = Danger (color)
     % #3 = danger-bg-color (background color)
     \mdfdefinestyle{#1-style}{%
-        innertopmargin=12px,
-        innerbottommargin=12px,
-        innerleftmargin=12px,
-        innerrightmargin=12px,
+        innertopmargin=10px,
+        innerbottommargin=10px,
         linecolor=#1-color,
         backgroundcolor=#1-bg-color,
-        roundcorner=6px
+        linewidth=2px,
+        topline=false,
+        bottomline=false,
+        rightline=false,
     }
     \newmdenv[style=#1-style]{#1}
     \expandafter\newcommand\csname clovis#2\endcsname[1]{
@@ -155,7 +159,7 @@ UE Libre Running}%
                     \\\vitesse VMA
                     \\\pause 1' (marche + trot)
                     
-                    \item \serie 2 $\times$ 4' 
+                    \item \serie 2 $\times$ 4'00''
                     \\\vitesse Seuil$^+$
                     \\\pause 3' (marche)
                 \end{itemize}
@@ -167,6 +171,30 @@ UE Libre Running}%
         absent (malade)
     
     \subsection{03.02}
+        \subsubsection{Description de la séance}
+            \clovisSeance{
+                \underline{\textbf{Objectif :}}
+                \begin{itemize}
+                    \item Confirmer sa VMA
+                \end{itemize}
+                %
+                \underline{\textbf{Programme de la séance :}}
+                \begin{itemize}
+                    \item \serie 6 $\times$ 36'' 
+                    \\\vitesse VMA$^+$
+                    \\\pause 36'' (marche)
+                    
+                    \item \serie 5 $\times$ 1'12'' 
+                    \\\vitesse VMA
+                    \\\pause 1' (marche + trot)
+                    
+                    \item \serie 2 $\times$ 4' 
+                    \\\vitesse Seuil$^+$
+                    \\\pause 3' (marche)
+                \end{itemize}
+            }
+        
+        \subsubsection{Résultats de la séance}
     
     
     \subsection{10.02}
@@ -231,4 +259,12 @@ UE Libre Running}%
     
     avant je courais sans comprendre les séances de Running Loisir, maintenant je saisis mieux l'objectif de chaque séance
     Je saurais désormais travailler dans le cadre d'un objectif personnel
+    
+    
+    
+    dire les sensations (manque de souffle ? jambes courbaturées ?)
+    et aussi dire que je me sens meilleur au sprint / sur du court
+    que sur du long, donc que plus tard
+    je devrais travailler mes faiblesses sur le long/endurance
+    et renforcer mes facilités en sprint tout ça
 \end{document}
