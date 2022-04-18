@@ -44,8 +44,8 @@
 
 
 % -------------------- Colors --------------------
-\definecolor{definition-color}{HTML}{2f80ed}
-\definecolor{definition-bg-color}{HTML}{dfebfc}
+\definecolor{seance-color}{HTML}{2f80ed}
+\definecolor{seance-bg-color}{HTML}{dfebfc}
 
 \definecolor{example-color}{HTML}{6b7280}
 \definecolor{example-bg-color}{HTML}{eceef2}
@@ -56,17 +56,8 @@
 \definecolor{danger-color}{HTML}{e6505f}
 \definecolor{danger-bg-color}{HTML}{fbe4e7}
 
-\definecolor{summary-color}{HTML}{e8ae95}
-\definecolor{summary-bg-color}{HTML}{fbf2ef}
-
-\definecolor{reminder-color}{HTML}{7689e8}
-\definecolor{reminder-bg-color}{HTML}{eaedfb}
-
-\definecolor{advice-color}{HTML}{685ea1}
-\definecolor{advice-bg-color}{HTML}{e8e6f0}
-
-\definecolor{remark-color}{HTML}{47c2bb}
-\definecolor{remark-bg-color}{HTML}{e3f5f4}
+\definecolor{definition-color}{HTML}{47c2bb}
+\definecolor{definition-bg-color}{HTML}{e3f5f4}
 
 \definecolor{code-bg-color}{HTML}{f3f4f6} % todo: temp color
 \definecolor{code-border-color}{HTML}{dadce0} % todo: temp color
@@ -119,13 +110,14 @@ bottomline=false,
 rightline=false,
 }
 
-\newcommand\clovisColorfulBlock[2]{
+\newcommand\clovisColorfulBlock[4]{
     % #1 = danger (name)
     % #2 = Danger (color)
     % #3 = danger-bg-color (background color)
     \mdfdefinestyle{#1-style}{%
         innertopmargin=10px,
         innerbottommargin=10px,
+        innerrightmargin=12px,
         linecolor=#1-color,
         backgroundcolor=#1-bg-color,
         linewidth=2px,
@@ -136,13 +128,14 @@ rightline=false,
     \newmdenv[style=#1-style]{#1}
     \expandafter\newcommand\csname clovis#2\endcsname[1]{
         \begin{#1}
-        {\scriptsize \textcolor{#1-color}{\faIcon{running} \textbf{SÉANCE}}}
+        {\scriptsize \textcolor{#1-color}{\faIcon{#3} \textbf{#4}}}
         \vspace{6px}
         \\ ##1
         \end{#1}
     }
 }
-\clovisColorfulBlock{definition}{Seance}
+\clovisColorfulBlock{seance}{Seance}{running}{SÉANCE}
+\clovisColorfulBlock{definition}{Definition}{graduation-cap}{DÉFINITION}
 
 
 
@@ -186,8 +179,12 @@ UE Libre Running}%
 \section{Introduction}
     Ceci est mon carnet d'entraînement pour l'UE Libre Running.
     
+    \clovisDefinition{
+                {\underline{\textbf{VMA}}\vspace{3px}}\\
+                Vitesse Maximum Aérobie.\\
+                C'est la plus petite vitesse à partir de laquelle la consommation d'oxygène est maximale.
     
-    définition de la VMA
+    }
 
 \section{Échauffement}
     20 minutes de footing
